@@ -606,3 +606,119 @@ p { margin: 0 0 16px; }
 @media (max-width: 580px) {
   .contact-grid { grid-template-columns: 1fr; }
 }
+/* Menú */
+nav ul {
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  padding: 0;
+}
+
+#menuToggle {
+  display: none;
+  font-size: 24px;
+  background: none;
+  border: none;
+}
+
+@media (max-width: 768px) {
+  #menuToggle {
+    display: block;
+  }
+  #menu.hidden {
+    display: none;
+  }
+  #menu {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+/* Estilos base */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.menu {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+}
+
+/* Ocultar hamburguesa en escritorio */
+.hamburger {
+  display: none;
+  font-size: 28px;
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Solo en móvil */
+@media (max-width: 768px) {
+  .hamburger {
+    display: block;
+  }
+
+  .menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #111;
+    padding: 20px;
+    z-index: 1000;
+  }
+
+  .menu.show {
+    display: flex;
+  }
+}
+
+@media (max-width: 768px) {
+  .menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 100%;
+    background-color: #111;
+    padding: 20px;
+    z-index: 1000;
+
+    /* Animación */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease-out;
+  }
+
+  .menu.show {
+    display: flex;
+    max-height: 300px; /* ajustá según la cantidad de enlaces */
+  }
+}
+
+.menu li a {
+  color: #fff; /* color base en tema oscuro */
+  text-decoration: none;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px; /* espacio entre icono y texto */
+  transition: color 0.3s;
+}
+
+.menu li a:hover {
+  color: #00aced; /* color destacado al pasar el mouse */
+}
+
+.menu li i {
+  font-size: 20px;
+  color: #00aced; /* mismo color que en tu diseño */
+}
